@@ -1,0 +1,6 @@
+requests
+Pillow
+matplotlib
+customtkinter
+
+
