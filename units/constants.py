@@ -54,7 +54,8 @@ CITY_SUGGESTIONS = {
 # Footer
 # ==============================
 
-FOOTER_TEXT = "Instagram: /real.shahzaib_    |    YouTube: /real.shahzaib7"
+FOOTER_TEXT = "Github: patelvraj0050-source    |    Author : Vraj Patel"
+
 
 
 # ==============================
@@ -91,4 +92,3 @@ WMO_CODES = {
     96: "Thunderstorm with Hail",
     99: "Severe Thunderstorm with Hail",
 }
-print("Done :::")

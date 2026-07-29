@@ -1,0 +1,8 @@
+{
+    "default_country": "India",
+    "default_city": "Delhi",
+    "temperature_unit": "C",
+    "wind_speed_unit": "km/h",
+    "theme": "dark",
+    "language": "en"
+}
