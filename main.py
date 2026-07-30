@@ -27,6 +27,11 @@ from units.constants import (
     CITY_SUGGESTIONS,
     FOOTER_TEXT,
 )
+from services.settings_service import load_settings
+settings = load_settings()
+print(settings)
+print("-" * 50)
+
 
 
 
