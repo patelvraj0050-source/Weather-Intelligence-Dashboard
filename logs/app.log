@@ -1,0 +1,247 @@
+2026-07-30 20:23:00,639 | INFO | Application started.
+2026-07-30 20:23:00,833 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:23:03,148 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:07,894 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:23:10,861 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:23:10,893 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:12,773 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:19,282 | INFO | Searching weather | Country: United States | City: Los Angeles
+2026-07-30 20:23:20,683 | INFO | Searching weather | Country: United States | City: Los Angeles
+2026-07-30 20:23:23,218 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:24,110 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:29,756 | INFO | Searching weather | Country: Australia | City: Melbourne
+2026-07-30 20:23:31,062 | INFO | Searching weather | Country: Australia | City: Melbourne
+2026-07-30 20:23:32,949 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:32,951 | INFO | Weather data fetched successfully.
+2026-07-30 20:23:53,885 | INFO | Application started.
+2026-07-30 20:23:54,120 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:23:58,301 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-30 20:24:00,090 | INFO | Weather data fetched successfully.
+2026-07-30 20:24:02,586 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-30 20:24:05,723 | INFO | Weather data fetched successfully.
+2026-07-30 20:24:06,722 | ERROR | Weather fetch failed: <urlopen error _ssl.c:985: The handshake operation timed out>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1038, in _send_output
+    self.send(msg)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 976, in send
+    self.connect()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1455, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1075, in _create
+    self.do_handshake()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1346, in do_handshake
+    self._sslobj.do_handshake()
+TimeoutError: _ssl.c:985: The handshake operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\main.py", line 180, in _fetch_worker
+    data = fetch_weather(query, country_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\services\weather_api.py", line 57, in fetch_weather
+    with urllib.request.urlopen(req, timeout=10) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error _ssl.c:985: The handshake operation timed out>
+2026-07-30 20:24:11,713 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:24:14,736 | INFO | Weather data fetched successfully.
+2026-07-30 20:24:16,642 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-30 20:24:20,268 | INFO | Weather data fetched successfully.
+2026-07-30 20:24:23,604 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:24:34,708 | INFO | Weather data fetched successfully.
+2026-07-30 20:28:45,480 | INFO | Application started.
+2026-07-30 20:28:45,793 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:28:47,888 | INFO | Weather data fetched successfully.
+2026-07-30 20:28:50,000 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-30 20:28:53,318 | INFO | Weather data fetched successfully.
+2026-07-30 20:28:59,506 | INFO | Searching weather | Country: United States | City: Chicago
+2026-07-30 20:29:03,274 | INFO | Weather data fetched successfully.
+2026-07-30 20:32:58,619 | INFO | Application started.
+2026-07-30 20:32:58,809 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:33:02,093 | INFO | Weather data fetched successfully.
+2026-07-30 20:33:05,665 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-30 20:33:08,850 | INFO | Weather data fetched successfully.
+2026-07-30 20:33:11,770 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-30 20:33:13,852 | INFO | Weather data fetched successfully.
+2026-07-30 20:33:17,693 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-30 20:33:19,990 | INFO | Weather data fetched successfully.
+2026-07-30 20:33:22,855 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:33:33,916 | ERROR | Weather fetch failed: <urlopen error _ssl.c:985: The handshake operation timed out>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1038, in _send_output
+    self.send(msg)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 976, in send
+    self.connect()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1455, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1075, in _create
+    self.do_handshake()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1346, in do_handshake
+    self._sslobj.do_handshake()
+TimeoutError: _ssl.c:985: The handshake operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\main.py", line 180, in _fetch_worker
+    data = fetch_weather(query, country_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\services\weather_api.py", line 57, in fetch_weather
+    with urllib.request.urlopen(req, timeout=10) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error _ssl.c:985: The handshake operation timed out>
+2026-07-30 20:33:36,799 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:33:49,079 | ERROR | Weather fetch failed: <urlopen error _ssl.c:985: The handshake operation timed out>
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1038, in _send_output
+    self.send(msg)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 976, in send
+    self.connect()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1455, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1075, in _create
+    self.do_handshake()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1346, in do_handshake
+    self._sslobj.do_handshake()
+TimeoutError: _ssl.c:985: The handshake operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\main.py", line 180, in _fetch_worker
+    data = fetch_weather(query, country_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\services\weather_api.py", line 57, in fetch_weather
+    with urllib.request.urlopen(req, timeout=10) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error _ssl.c:985: The handshake operation timed out>
+2026-07-30 20:33:54,222 | INFO | Searching weather | Country: India | City: Kolkata
+2026-07-30 20:33:57,267 | INFO | Weather data fetched successfully.
+2026-07-30 20:34:01,227 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:34:04,771 | INFO | Weather data fetched successfully.
+2026-07-30 20:39:18,420 | INFO | Application started.
+2026-07-30 20:39:18,644 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:39:28,093 | INFO | Weather data fetched successfully.
+2026-07-30 20:39:34,406 | INFO | Searching weather | Country: Canada | City: Toronto
+2026-07-30 20:39:37,588 | INFO | Weather data fetched successfully.
+2026-07-30 20:39:45,041 | INFO | Searching weather | Country: United Arab Emirates | City: Dubai
+2026-07-30 20:39:48,165 | INFO | Weather data fetched successfully.
+2026-07-30 20:39:54,267 | INFO | Searching weather | Country: Canada | City: Montreal
+2026-07-30 20:39:57,279 | INFO | Weather data fetched successfully.
+2026-07-30 20:45:30,463 | INFO | Application started.
+2026-07-30 20:45:30,737 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:45:33,195 | INFO | Weather data fetched successfully.
+2026-07-30 20:45:46,861 | INFO | Searching weather | Country: Canada | City: Toronto
+2026-07-30 20:45:49,991 | INFO | Weather data fetched successfully.
+2026-07-30 20:46:03,831 | INFO | Searching weather | Country: Pakistan | City: Lahore
+2026-07-30 20:46:07,064 | INFO | Weather data fetched successfully.
+2026-07-30 20:50:09,082 | INFO | Application started.
+2026-07-30 20:50:09,278 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:50:15,856 | INFO | Weather data fetched successfully.
+2026-07-30 20:50:26,941 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-30 20:50:30,195 | INFO | Weather data fetched successfully.
+2026-07-30 20:50:36,364 | INFO | Searching weather | Country: India | City: Mumbai, Maharashtra, India
+2026-07-30 20:50:39,718 | INFO | Weather data fetched successfully.
+2026-07-30 20:54:02,287 | INFO | Application started.
+2026-07-30 20:54:02,801 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:54:05,357 | INFO | Weather data fetched successfully.
+2026-07-30 20:54:18,560 | INFO | Searching weather | Country: Canada | City: Toronto
+2026-07-30 20:54:21,539 | INFO | Weather data fetched successfully.
+2026-07-30 20:59:21,452 | INFO | Application started.
+2026-07-30 20:59:23,441 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:59:25,751 | INFO | Weather data fetched successfully.
+2026-07-30 20:59:33,153 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-30 20:59:35,816 | INFO | Weather data fetched successfully.
+2026-07-30 20:59:39,227 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-30 20:59:40,695 | INFO | Weather data fetched successfully.
+2026-07-30 20:59:43,568 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-30 20:59:46,206 | INFO | Weather data fetched successfully.
+2026-07-30 20:59:48,992 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-30 20:59:50,571 | INFO | Weather data fetched successfully.

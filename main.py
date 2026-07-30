@@ -28,11 +28,17 @@ from units.constants import (
     FOOTER_TEXT,
 )
 from services.settings_service import load_settings
-settings = load_settings()
-print(settings)
-print("-" * 50)
+from logs.logging_service import logger
 
+from database.database_service import (
+    initialize_database,
+    save_search,
+    get_recent_searches,
+    add_favorite,
+    get_favorites,
+)
 
+from ui.history_panel import HistoryPanel
 
 
 
@@ -40,6 +46,7 @@ print("-" * 50)
 class WeatherApp(tk.Tk):
     def __init__(self):
         super().__init__()
+        self.settings = load_settings()
         self.title("Weather • Static Demo")
         self.geometry("460x680")
         self.minsize(420, 640)
@@ -72,12 +79,17 @@ class WeatherApp(tk.Tk):
         
         stats = StatsPanel(self)
         self.stat_widgets = stats.stat_widgets
+
+        history = HistoryPanel(self)
+        self.history_panel = history
         
         Footer(self)
+        self.update_history()
 
-        self.country_var.set("India")
+        self.country_var.set(self.settings["default_country"])
         self._on_country_selected()
-        self.city_var.set("Delhi")
+
+        self.city_var.set(self.settings["default_city"])
         self.search()
 
     def _build_style(self):
@@ -155,6 +167,11 @@ class WeatherApp(tk.Tk):
 
     
     def search(self):
+
+        logger.info(
+            f"Searching weather | Country: {self.country_var.get()} | City: {self.city_var.get()}"
+        )
+
         query = self.city_var.get().strip()
         country_name = self.country_var.get().strip()
         if not country_name:
@@ -172,10 +189,19 @@ class WeatherApp(tk.Tk):
     def _fetch_worker(self, query, country_code):
         try:
             data = fetch_weather(query, country_code)
+
+            logger.info("Weather data fetched successfully.")
+
             self.after(0, self.show_city, data)
-        except Exception:
+
+        except Exception as e:
+
+            logger.exception(f"Weather fetch failed: {e}")
+
             self.after(0, self.show_not_found, query)
 
+
+    
     def show_loading(self, query):
         self.city_label.config(text=f"Loading {query}...", fg=TEXT_MAIN)
         self.condition_label.config(text="Fetching live data from Open-Meteo")
@@ -187,6 +213,22 @@ class WeatherApp(tk.Tk):
 
     def show_city(self, data):
         self.city_var.set(data["resolved_name"])
+
+        save_search(
+            data["resolved_name"],
+            self.country_var.get()
+        )
+
+        add_favorite(
+            data["resolved_name"],
+            self.country_var.get()
+        )
+
+        print(get_favorites())
+
+        self.update_history()
+
+
         self.city_label.config(text=data["resolved_name"], fg=TEXT_MAIN)
         self.condition_label.config(text=data["condition"])
         self.icon_label.config(text=data["icon"])
@@ -199,6 +241,39 @@ class WeatherApp(tk.Tk):
         now = datetime.now().strftime("%A, %d %b — %I:%M %p")
         self.updated_label.config(text=f"Last updated: {now} (live via Open-Meteo)")
 
+    def update_history(self):
+
+        for widget in self.history_panel.button_frame.winfo_children():
+            widget.destroy()
+
+        recent = get_recent_searches()
+
+        if not recent:
+
+            tk.Label(
+                self.history_panel.button_frame,
+                text="No searches yet",
+                bg=BG_CARD,
+                fg=TEXT_SUB,
+            ).pack(anchor="w")
+
+            return
+
+        for city, country, _ in recent:
+
+            tk.Button(
+                self.history_panel.button_frame,
+                text=f"{city}, {country}",
+                command=lambda c=city: self.search_from_history(c),
+            ).pack(fill="x", pady=2)
+
+    def search_from_history(self, city):
+
+        self.city_var.set(city)
+
+        self.search()
+
+
     def show_not_found(self, query):
         self.city_label.config(text=f'"{query}" not found', fg=BAD)
         self.condition_label.config(text="Check spelling or your internet connection")
@@ -210,5 +285,10 @@ class WeatherApp(tk.Tk):
 
 
 if __name__ == "__main__":
+    logger.info("Application started.")
+
+    initialize_database()
+
     app = WeatherApp()
+
     app.mainloop()
