@@ -245,3 +245,103 @@ urllib.error.URLError: <urlopen error _ssl.c:985: The handshake operation timed 
 2026-07-30 20:59:46,206 | INFO | Weather data fetched successfully.
 2026-07-30 20:59:48,992 | INFO | Searching weather | Country: India | City: Mumbai
 2026-07-30 20:59:50,571 | INFO | Weather data fetched successfully.
+2026-07-31 10:26:19,089 | INFO | Application started.
+2026-07-31 10:26:20,672 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 10:26:23,047 | INFO | Weather data fetched successfully.
+2026-07-31 10:26:30,333 | INFO | Searching weather | Country: India | City: Chennai, Tamil Nadu, India
+2026-07-31 10:26:32,314 | INFO | Weather data fetched successfully.
+2026-07-31 10:26:36,986 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 10:26:39,018 | INFO | Weather data fetched successfully.
+2026-07-31 10:26:45,959 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-31 10:26:47,990 | INFO | Weather data fetched successfully.
+2026-07-31 10:35:39,960 | INFO | Application started.
+2026-07-31 10:35:40,227 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 10:35:42,666 | INFO | Weather data fetched successfully.
+2026-07-31 10:35:48,720 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 10:35:50,858 | INFO | Weather data fetched successfully.
+2026-07-31 10:35:58,533 | INFO | Searching weather | Country: India | City: Kolkata
+2026-07-31 10:36:00,893 | INFO | Weather data fetched successfully.
+2026-07-31 10:41:12,633 | INFO | Application started.
+2026-07-31 10:41:45,736 | INFO | Application started.
+2026-07-31 10:41:45,974 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 10:41:48,603 | INFO | Weather data fetched successfully.
+2026-07-31 10:42:49,531 | INFO | Application started.
+2026-07-31 10:42:49,823 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 10:42:52,094 | INFO | Weather data fetched successfully.
+2026-07-31 11:16:06,356 | INFO | Application started.
+2026-07-31 11:16:06,730 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:16:09,251 | INFO | Weather data fetched successfully.
+2026-07-31 11:16:13,643 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-31 11:16:15,393 | INFO | Weather data fetched successfully.
+2026-07-31 11:19:23,737 | INFO | Application started.
+2026-07-31 11:19:24,014 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:19:25,692 | INFO | Weather data fetched successfully.
+2026-07-31 11:19:31,718 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-31 11:19:33,385 | INFO | Weather data fetched successfully.
+2026-07-31 11:20:02,418 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 11:20:04,182 | INFO | Weather data fetched successfully.
+2026-07-31 11:20:21,316 | INFO | Application started.
+2026-07-31 11:20:21,587 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:20:23,219 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:32,084 | INFO | Application started.
+2026-07-31 11:24:32,475 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:24:34,835 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:49,427 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:24:49,468 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 11:24:49,499 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-31 11:24:49,512 | INFO | Searching weather | Country: India | City: Kolkata
+2026-07-31 11:24:50,073 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-31 11:24:50,102 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 11:24:50,134 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:24:50,193 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:24:51,108 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,115 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,164 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,245 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,545 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,637 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,687 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,784 | INFO | Weather data fetched successfully.
+2026-07-31 11:24:51,872 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:24:53,302 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:03,041 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:25:03,081 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:25:03,099 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 11:25:03,120 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-31 11:25:03,149 | INFO | Searching weather | Country: India | City: Kolkata
+2026-07-31 11:25:03,509 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-31 11:25:03,541 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-31 11:25:03,612 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 11:25:03,650 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:25:03,689 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:25:04,117 | INFO | Searching weather | Country: India | City: Delhi
+2026-07-31 11:25:04,186 | INFO | Searching weather | Country: India | City: Bangalore
+2026-07-31 11:25:04,281 | INFO | Searching weather | Country: India | City: Hyderabad
+2026-07-31 11:25:04,360 | INFO | Searching weather | Country: India | City: Chennai
+2026-07-31 11:25:04,410 | INFO | Searching weather | Country: India | City: Kolkata
+2026-07-31 11:25:04,836 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:04,844 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:04,845 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:04,864 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,040 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,420 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:25:05,445 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,480 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,488 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,493 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,539 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,648 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,738 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:05,796 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:06,050 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:06,139 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:06,929 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:07,073 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:25:09,834 | INFO | Weather data fetched successfully.
+2026-07-31 11:25:11,101 | INFO | Searching weather | Country: India | City: Kolkata
+2026-07-31 11:25:12,713 | INFO | Weather data fetched successfully.
+2026-07-31 11:28:52,941 | INFO | Application started.
+2026-07-31 11:28:53,224 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:28:56,069 | INFO | Weather data fetched successfully.
+2026-07-31 11:29:03,519 | INFO | Searching weather | Country: India | City: Mumbai
+2026-07-31 11:29:05,664 | INFO | Weather data fetched successfully.

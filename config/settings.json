@@ -1,6 +1,6 @@
 {
     "default_country": "India",
-    "default_city": "Delhi",
+    "default_city": "Mumbai",
     "temperature_unit": "C",
     "wind_speed_unit": "km/h",
     "theme": "dark",

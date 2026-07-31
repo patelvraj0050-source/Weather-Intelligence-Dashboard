@@ -39,8 +39,8 @@ from database.database_service import (
 )
 
 from ui.history_panel import HistoryPanel
-
-
+from ui.favourites_panel import FavoritesPanel
+from ui.settings_window import SettingsWindow
 
 
 class WeatherApp(tk.Tk):
@@ -48,14 +48,26 @@ class WeatherApp(tk.Tk):
         super().__init__()
         self.settings = load_settings()
         self.title("Weather • Static Demo")
-        self.geometry("460x680")
-        self.minsize(420, 640)
+        self.geometry("500x900")
+        self.minsize(480, 850)
         self.configure(bg=BG_DARK)
-
+        self.resizable(True, True)
         self._build_style()
         header = Header(self)
         
         self.updated_label = header.updated_label
+
+        self.settings_button = tk.Button(
+            self,
+            text="⚙ Settings",
+            command=self.open_settings
+        )
+
+        self.settings_button.pack(
+            anchor="e",
+            padx=24,
+            pady=(0, 10)
+        )
         
         search_panel = SearchPanel(
             self,
@@ -70,27 +82,48 @@ class WeatherApp(tk.Tk):
         self.city_box = search_panel.city_box
         
         card = WeatherCard(self)
+        
 
         self.city_label = card.city_label
         self.condition_label = card.condition_label
         self.icon_label = card.icon_label
         self.temp_label = card.temp_label
         self.feels_label = card.feels_label
+
+        self.favorite_button = tk.Button(
+            self,
+            text="⭐ Add to Favorites",
+            command=self.add_current_to_favorites
+        )
+
+        self.favorite_button.pack(pady=5)
         
         stats = StatsPanel(self)
         self.stat_widgets = stats.stat_widgets
 
+        favorites = FavoritesPanel(self)
+        self.favorites_panel = favorites
+
         history = HistoryPanel(self)
         self.history_panel = history
+
+
         
         Footer(self)
+        self.update_favorites()
         self.update_history()
 
         self.country_var.set(self.settings["default_country"])
         self._on_country_selected()
 
         self.city_var.set(self.settings["default_city"])
+
+        self.current_city = None
+        self.current_country = None
+
         self.search()
+
+        
 
     def _build_style(self):
         self.option_add("*Font", "Segoeui 11")
@@ -219,12 +252,9 @@ class WeatherApp(tk.Tk):
             self.country_var.get()
         )
 
-        add_favorite(
-            data["resolved_name"],
-            self.country_var.get()
-        )
+        self.current_city = data["resolved_name"]
+        self.current_country = self.country_var.get()
 
-        print(get_favorites())
 
         self.update_history()
 
@@ -242,36 +272,97 @@ class WeatherApp(tk.Tk):
         self.updated_label.config(text=f"Last updated: {now} (live via Open-Meteo)")
 
     def update_history(self):
+    
+            for widget in self.history_panel.button_frame.winfo_children():
+                widget.destroy()
+    
+            recent = get_recent_searches()
+    
+            if not recent:
+    
+                tk.Label(
+                    self.history_panel.button_frame,
+                    text="No searches yet",
+                    bg=BG_CARD,
+                    fg=TEXT_SUB,
+                ).pack(anchor="w")
+    
+                return
+    
+            for city, country, _ in recent:
+    
+                tk.Button(
+                    self.history_panel.button_frame,
+                    text=f"{city}, {country}",
+                    command=lambda c=city: self.search_from_history(c),
+                ).pack(fill="x", pady=2)
+    
+    
 
-        for widget in self.history_panel.button_frame.winfo_children():
-            widget.destroy()
+    def update_favorites(self):
+    
+            for widget in self.favorites_panel.button_frame.winfo_children():
+                widget.destroy()
+    
+            favorites = get_favorites()
+    
+            if not favorites:
+    
+                tk.Label(
+                    self.favorites_panel.button_frame,
+                    text="No favorite cities",
+                    bg=BG_CARD,
+                    fg=TEXT_SUB,
+                ).pack(anchor="w")
+    
+                return
+    
+            for city, country in favorites:
+    
+                tk.Button(
+                    self.favorites_panel.button_frame,
+                    text=f"⭐ {city}, {country}",
+                    command=lambda c=city: self.search_from_history(c),
+                ).pack(fill="x", pady=2)
 
-        recent = get_recent_searches()
+    def add_current_to_favorites(self):
 
-        if not recent:
-
-            tk.Label(
-                self.history_panel.button_frame,
-                text="No searches yet",
-                bg=BG_CARD,
-                fg=TEXT_SUB,
-            ).pack(anchor="w")
-
+        if self.current_city is None:
             return
 
-        for city, country, _ in recent:
+        add_favorite(
+            self.current_city,
+            self.current_country
+        )
 
-            tk.Button(
-                self.history_panel.button_frame,
-                text=f"{city}, {country}",
-                command=lambda c=city: self.search_from_history(c),
-            ).pack(fill="x", pady=2)
+        self.update_favorites()
 
+    def reload_settings(self):
+
+        self.settings = load_settings()
+
+        self.country_var.set(
+            self.settings["default_country"]
+        )
+
+        self._on_country_selected()
+
+        self.city_var.set(
+            self.settings["default_city"]
+        )
+
+        self.search()
+    
+    
     def search_from_history(self, city):
 
         self.city_var.set(city)
 
         self.search()
+
+    def open_settings(self):
+
+        SettingsWindow(self)
 
 
     def show_not_found(self, query):
