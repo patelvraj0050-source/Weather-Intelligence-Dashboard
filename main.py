@@ -41,16 +41,24 @@ from database.database_service import (
 from ui.history_panel import HistoryPanel
 from ui.favourites_panel import FavoritesPanel
 from ui.settings_window import SettingsWindow
-
+from themes import DARK_THEME, LIGHT_THEME
 
 class WeatherApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.settings = load_settings()
+
+        theme_name = self.settings["theme"].lower()
+
+        if theme_name == "dark":
+            self.theme = DARK_THEME
+        else:
+            self.theme = LIGHT_THEME
+
         self.title("Weather • Static Demo")
         self.geometry("500x900")
         self.minsize(480, 850)
-        self.configure(bg=BG_DARK)
+        self.configure(bg=self.theme["bg"])
         self.resizable(True, True)
         self._build_style()
         header = Header(self)
@@ -357,6 +365,31 @@ class WeatherApp(tk.Tk):
     def search_from_history(self, city):
 
         self.city_var.set(city)
+
+        self.search()
+
+    def reload_settings(self):
+
+        self.settings = load_settings()
+
+        theme_name = self.settings["theme"].lower()
+
+        if theme_name == "dark":
+            self.theme = DARK_THEME
+        else:
+            self.theme = LIGHT_THEME
+
+        self.configure(bg=self.theme["bg"])
+
+        self.country_var.set(
+            self.settings["default_country"]
+        )
+
+        self._on_country_selected()
+
+        self.city_var.set(
+            self.settings["default_city"]
+        )
 
         self.search()
 
