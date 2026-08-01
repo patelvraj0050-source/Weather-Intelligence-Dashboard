@@ -653,3 +653,70 @@ urllib.error.URLError: <urlopen error _ssl.c:985: The handshake operation timed 
 2026-07-31 20:13:43,354 | INFO | Weather data fetched successfully.
 2026-07-31 20:13:46,405 | INFO | Searching weather | Country: India | City: Ahmedabad
 2026-07-31 20:13:48,475 | INFO | Weather data fetched successfully.
+2026-08-01 10:42:55,259 | INFO | Application started.
+2026-08-01 10:43:02,722 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 10:43:06,083 | INFO | Weather data fetched successfully.
+2026-08-01 10:43:23,359 | INFO | Searching weather | Country: India | City: Ranip
+2026-08-01 10:43:25,498 | INFO | Weather data fetched successfully.
+2026-08-01 10:43:40,943 | INFO | Searching weather | Country: India | City: Nikol, Gujarat, India
+2026-08-01 10:43:42,437 | ERROR | Weather fetch failed: City not found: Nikol, Gujarat, India
+Traceback (most recent call last):
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\main.py", line 232, in _fetch_worker
+    data = fetch_weather(query, country_code)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\services\weather_api.py", line 40, in fetch_weather
+    lat, lon, resolved_name = geocode(city, country_code)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python_Practice\Weather-Intelligence-Dashboard\services\geocoder.py", line 59, in geocode
+    raise ValueError(f"City not found: {city}")
+ValueError: City not found: Nikol, Gujarat, India
+2026-08-01 10:43:49,246 | INFO | Searching weather | Country: India | City: Nikol
+2026-08-01 10:43:51,140 | INFO | Weather data fetched successfully.
+2026-08-01 10:44:03,150 | INFO | Searching weather | Country: India | City: Ranip
+2026-08-01 10:44:05,026 | INFO | Weather data fetched successfully.
+2026-08-01 11:11:01,005 | INFO | Application started.
+2026-08-01 11:11:02,093 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:11:04,535 | INFO | Weather data fetched successfully.
+2026-08-01 11:11:13,666 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:11:16,720 | INFO | Weather data fetched successfully.
+2026-08-01 11:11:22,831 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:11:25,084 | INFO | Weather data fetched successfully.
+2026-08-01 11:11:51,273 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:11:53,339 | INFO | Weather data fetched successfully.
+2026-08-01 11:31:31,925 | INFO | Application started.
+2026-08-01 11:31:32,760 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:31:34,981 | INFO | Weather data fetched successfully.
+2026-08-01 11:31:43,081 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:31:46,960 | INFO | Weather data fetched successfully.
+2026-08-01 11:31:52,114 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:31:54,642 | INFO | Weather data fetched successfully.
+2026-08-01 11:40:21,124 | INFO | Application started.
+2026-08-01 11:40:21,678 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:40:24,187 | INFO | Weather data fetched successfully.
+2026-08-01 11:47:01,732 | INFO | Application started.
+2026-08-01 11:47:02,884 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:47:05,456 | INFO | Weather data fetched successfully.
+2026-08-01 11:49:03,922 | INFO | Application started.
+2026-08-01 11:49:04,523 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:49:07,250 | INFO | Weather data fetched successfully.
+2026-08-01 11:49:53,427 | INFO | Application started.
+2026-08-01 11:49:54,379 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:49:56,403 | INFO | Weather data fetched successfully.
+2026-08-01 11:50:00,293 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:50:02,475 | INFO | Weather data fetched successfully.
+2026-08-01 11:56:16,097 | INFO | Application started.
+2026-08-01 11:56:22,073 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 11:56:24,808 | INFO | Weather data fetched successfully.
+2026-08-01 12:02:32,153 | INFO | Application started.
+2026-08-01 12:02:33,232 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 12:02:35,395 | INFO | Weather data fetched successfully.
+2026-08-01 12:02:43,072 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 12:02:52,299 | INFO | Application started.
+2026-08-01 12:02:57,113 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 12:02:59,328 | INFO | Weather data fetched successfully.
+2026-08-01 12:15:14,299 | INFO | Application started.
+2026-08-01 12:15:14,872 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 12:15:20,434 | INFO | Weather data fetched successfully.
+2026-08-01 12:19:38,091 | INFO | Application started.
+2026-08-01 12:19:38,812 | INFO | Searching weather | Country: India | City: Ahmedabad
+2026-08-01 12:19:40,823 | INFO | Weather data fetched successfully.

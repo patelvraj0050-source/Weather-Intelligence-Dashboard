@@ -1,7 +1,10 @@
 import tkinter as tk
 
-from units.constants import BG_DARK, TEXT_MAIN, TEXT_MUTED
-
+from units.constants import (
+    BG_DARK,
+    TEXT_MAIN,
+    TEXT_MUTED,
+)
 
 class Header(tk.Frame):
     def __init__(self, parent):

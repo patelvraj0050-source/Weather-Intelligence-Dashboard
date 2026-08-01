@@ -36,29 +36,37 @@ from database.database_service import (
     get_recent_searches,
     add_favorite,
     get_favorites,
+    get_total_searches,
+    get_most_searched_city,
+    get_total_countries,
 )
 
 from ui.history_panel import HistoryPanel
 from ui.favourites_panel import FavoritesPanel
 from ui.settings_window import SettingsWindow
-from themes import DARK_THEME, LIGHT_THEME
+#from themes import DARK_THEME, LIGHT_THEME
+
+from ui.analytics_panel import AnalyticsPanel
+
+from ui.analytics_window import AnalyticsWindow
 
 class WeatherApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.settings = load_settings()
-
+        """
         theme_name = self.settings["theme"].lower()
 
         if theme_name == "dark":
             self.theme = DARK_THEME
         else:
             self.theme = LIGHT_THEME
-
+        """
+            
         self.title("Weather • Static Demo")
-        self.geometry("500x900")
-        self.minsize(480, 850)
-        self.configure(bg=self.theme["bg"])
+        self.geometry("650x1100")
+        self.minsize(600, 1000)
+        self.configure(bg=BG_DARK)
         self.resizable(True, True)
         self._build_style()
         header = Header(self)
@@ -67,11 +75,23 @@ class WeatherApp(tk.Tk):
 
         self.settings_button = tk.Button(
             self,
-            text="⚙ Settings",
+            text="⚙ ",
             command=self.open_settings
         )
 
         self.settings_button.pack(
+            anchor="e",
+            padx=24,
+            pady=(0, 10)
+        )
+
+        self.analytics_button = tk.Button(
+            self,
+            text="📊 Analytics",
+            command=self.open_analytics
+        )
+
+        self.analytics_button.pack(
             anchor="e",
             padx=24,
             pady=(0, 10)
@@ -109,6 +129,9 @@ class WeatherApp(tk.Tk):
         stats = StatsPanel(self)
         self.stat_widgets = stats.stat_widgets
 
+        analytics = AnalyticsPanel(self)
+        self.analytics_panel = analytics
+
         favorites = FavoritesPanel(self)
         self.favorites_panel = favorites
 
@@ -120,6 +143,7 @@ class WeatherApp(tk.Tk):
         Footer(self)
         self.update_favorites()
         self.update_history()
+        self.update_analytics()
 
         self.country_var.set(self.settings["default_country"])
         self._on_country_selected()
@@ -132,6 +156,31 @@ class WeatherApp(tk.Tk):
         self.search()
 
         
+    def update_analytics(self):
+
+        total = get_total_searches()
+
+        city = get_most_searched_city()
+
+        countries = get_total_countries()
+
+        self.analytics_panel.total_label.config(
+            text=f"Total Searches : {total}"
+        )
+
+        if city:
+            self.analytics_panel.city_label.config(
+                text=f"Most Searched : {city[0]} ({city[1]})"
+            )
+        else:
+            self.analytics_panel.city_label.config(
+                text="Most Searched : None"
+            )
+
+        self.analytics_panel.country_label.config(
+            text=f"Countries Searched : {countries}"
+        )
+
 
     def _build_style(self):
         self.option_add("*Font", "Segoeui 11")
@@ -265,7 +314,7 @@ class WeatherApp(tk.Tk):
 
 
         self.update_history()
-
+        self.update_analytics()
 
         self.city_label.config(text=data["resolved_name"], fg=TEXT_MAIN)
         self.condition_label.config(text=data["condition"])
@@ -372,15 +421,6 @@ class WeatherApp(tk.Tk):
 
         self.settings = load_settings()
 
-        theme_name = self.settings["theme"].lower()
-
-        if theme_name == "dark":
-            self.theme = DARK_THEME
-        else:
-            self.theme = LIGHT_THEME
-
-        self.configure(bg=self.theme["bg"])
-
         self.country_var.set(
             self.settings["default_country"]
         )
@@ -393,10 +433,16 @@ class WeatherApp(tk.Tk):
 
         self.search()
 
+
+
+
     def open_settings(self):
 
         SettingsWindow(self)
 
+    def open_analytics(self):
+
+        AnalyticsWindow(self)
 
     def show_not_found(self, query):
         self.city_label.config(text=f'"{query}" not found', fg=BAD)

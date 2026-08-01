@@ -100,3 +100,70 @@ def get_favorites():
     conn.close()
 
     return rows
+
+
+def get_total_searches():
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM search_history
+    """)
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+
+
+def get_most_searched_city():
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT city,
+               COUNT(*) AS total
+        FROM search_history
+        GROUP BY city
+        ORDER BY total DESC
+        LIMIT 1
+    """)
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    return result
+
+def get_total_countries():
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT COUNT(DISTINCT country)
+        FROM search_history
+    """)
+
+    total = cursor.fetchone()[0]
+
+    conn.close()
+
+    return total
+
+
+
+if __name__ == "__main__":
+
+    print(get_total_searches())
+
+    print(get_most_searched_city())
+
+    print(get_total_countries())
